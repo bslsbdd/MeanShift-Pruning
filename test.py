@@ -56,7 +56,7 @@ args = parser.parse_args()
 args.cuda = not args.no_cuda and torch.cuda.is_available()
 
 if args.test:
-    checkpoint = torch.load(args.refine)
+    checkpoint = torch.load(args.test)
     model = models.__dict__[args.arch](dataset=args.dataset, depth=args.depth, cfg=checkpoint['cfg'])
     model.load_state_dict(checkpoint['state_dict'])
 else:
